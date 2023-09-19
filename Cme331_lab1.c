@@ -28,7 +28,7 @@ void gpio_portf_init(void)
    GPIO_PORTF_DEN |= 0x08;  // set PF1 to be a digital pin
    GPIO_PORTF_DIR |= 0x08; // set PF1 to be an output pin
    GPIO_PORTF_AFSEL &= ~0x08; // disable alternate functions for PF1
-   GPIO_PORTF_DATA |= 0x08;
+  // GPIO_PORTF_DATA |= 0x08;
 
     // Configuration for SW1
     GPIO_PORTF_DEN |= 0x10;  // set PF4 to be a digital pin
