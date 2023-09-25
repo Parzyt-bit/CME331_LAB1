@@ -40,7 +40,7 @@ void gpio_portf_init(void)
 }
 void delay (void)
 {
-    gpio_portf_init();
+
     i_g = 0;
     while (i_g <= 1000000)
     {
