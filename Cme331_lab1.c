@@ -6,7 +6,6 @@
 #define GPIO_PORTF_DATA (* ((volatile unsigned long *) 0x400253FC))
 #define GPIO_PORTF_PUR (* ((volatile unsigned long *) 0x40025510))
 
-int i_g = 0;
 
 void gpio_portf_init(void)
 {
@@ -41,16 +40,15 @@ void gpio_portf_init(void)
 void delay (void)
 {
 
-    i_g = 0;
-    while (i_g <= 1000000)
+    int i = 0;
+    while (i <= 800000)
     {
         if ((GPIO_PORTF_DATA & 0x10) == 0x10)   // Switch is not pressed
         {
-            i_g = i_g + 1;
+            i = i + 1;
         }
         else                        // Switch is pressed
         {
-            i_g = -1;
             break;
         }
 
@@ -59,10 +57,10 @@ void delay (void)
 
 void DELAY (void)
 {
-    i_g = 0;
-    while (i_g <= 1000000)
+    int i = 0;
+    while (i <= 800000)
     {
-        i_g = i_g + 1;
+        i = i + 1;
     }
 
 }
