@@ -71,72 +71,40 @@ int main(void)
     gpio_portf_init();
     while (1)
     {
+        GPIO_PORTF_DATA &= ~0x04;
+        GPIO_PORTF_DATA &= ~0x08;
 
-       GPIO_PORTF_DATA &= ~0x04; // Switched Blue LED off
-       GPIO_PORTF_DATA &= ~0x08; // Switched Green LED off
-
-       while (1)
-       {
-        if ((GPIO_PORTF_DATA & 0x10) == 0x10)
+        while (1)
         {
             GPIO_PORTF_DATA ^= 0x02;
-            delay();
-            if (i_g == -1)
-            {
-                break;
-            }
-
-            else
+            DELAY();
+            if ((GPIO_PORTF_DATA & 0x10) == 0)
             {
                 break;
             }
         }
-       }
-       DELAY();
-
-       GPIO_PORTF_DATA &= ~0x02; // Switched Red LED off
-       GPIO_PORTF_DATA &= ~0x08; // Switched Green LED off
-
-       while (1)
-       {
-        if ((GPIO_PORTF_DATA & 0x10) == 0x10)
+        GPIO_PORTF_DATA &= ~0x02;
+        GPIO_PORTF_DATA &= ~0x08;
+        while (1)
         {
             GPIO_PORTF_DATA ^= 0x04;
-            delay();
-            if (i_g == -1)
-            {
-                break;
-            }
-
-            else
+            DELAY();
+            if ((GPIO_PORTF_DATA & 0x10) == 0)
             {
                 break;
             }
         }
-       }
-       DELAY();
-
-       GPIO_PORTF_DATA &= ~0x02; // Switched Red LED off
-       GPIO_PORTF_DATA &= ~0x04; // Switched Blue LED off
-
-       while (1)
-       {
-        if ((GPIO_PORTF_DATA & 0x10) == 0x10)
+        GPIO_PORTF_DATA &= ~0x02;
+        GPIO_PORTF_DATA &= ~0x04;
+        while (1)
         {
-            GPIO_PORTF_DATA ^= 0x04;
-            delay();
-            if (i_g == -1)
-            {
-                break;
-            }
-
-            else
+            GPIO_PORTF_DATA ^= 0x08;
+            DELAY();
+            if ((GPIO_PORTF_DATA & 0x10) == 0)
             {
                 break;
             }
         }
-       }
-       DELAY();
 
     }
 }
