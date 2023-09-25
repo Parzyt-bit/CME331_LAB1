@@ -77,7 +77,7 @@ int main(void)
         while (1)
         {
             GPIO_PORTF_DATA ^= 0x02;
-            DELAY();
+            delay();
             if ((GPIO_PORTF_DATA & 0x10) == 0)
             {
                 break;
@@ -88,7 +88,7 @@ int main(void)
         while (1)
         {
             GPIO_PORTF_DATA ^= 0x04;
-            DELAY();
+            delay();
             if ((GPIO_PORTF_DATA & 0x10) == 0)
             {
                 break;
@@ -99,7 +99,7 @@ int main(void)
         while (1)
         {
             GPIO_PORTF_DATA ^= 0x08;
-            DELAY();
+            delay();
             if ((GPIO_PORTF_DATA & 0x10) == 0)
             {
                 break;
