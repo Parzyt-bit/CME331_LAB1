@@ -83,6 +83,7 @@ int main(void)
                 break;
             }
         }
+        DELAY ();
         GPIO_PORTF_DATA &= ~0x02;
         GPIO_PORTF_DATA &= ~0x08;
         while (1)
@@ -94,6 +95,8 @@ int main(void)
                 break;
             }
         }
+        DELAY ();
+
         GPIO_PORTF_DATA &= ~0x02;
         GPIO_PORTF_DATA &= ~0x04;
         while (1)
@@ -105,6 +108,8 @@ int main(void)
                 break;
             }
         }
+        DELAY ();
+
 
     }
 }
